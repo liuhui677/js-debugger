@@ -4,13 +4,16 @@
 
 (function () {
   'use strict';
-
+  // 创建一个桶用来管理obj, keys = [],和callback
+  const bucket = new Map();
   /**
    * 监听对象属性变化
    * @param {Object} obj 要监听的对象
    * @param {Array<string>} keys 需要输出日志的 key 列表，空数组表示所有 key
    */
-  function watchObject(obj, keys = []) {
+  function watchObject(obj, keys = [], callback = (key, oldValue, newValue) => { }) {
+    const temp = { keys, callback };
+    bucket.set(obj, { keys, callback });
     Object.keys(obj).forEach((key) => {
       let internalValue = obj[key];
 
@@ -24,7 +27,11 @@
           const oldValue = internalValue;
           if (newValue !== oldValue) {
             internalValue = newValue;
+            const { keys, callback } = bucket.get(obj) || { keys: temp.keys, callback: temp.callback };
             if (keys.length === 0 || keys.includes(key)) {
+              if (callback && typeof callback === 'function') {
+                callback(key, oldValue, newValue);
+              }
               console.log(`修改属性：${key}，旧值：`, oldValue);
               console.log(`修改属性：${key}，新值：`, newValue);
             }
@@ -81,4 +88,3 @@
     watchArray,
   };
 })();
-
