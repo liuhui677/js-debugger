@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Init",
+  "name": "js-debugger",
   "version": "0.1.0",
   "description": "My Chrome Extension",
   "icons": {
@@ -13,7 +13,7 @@
     "service_worker": "background.js"
   },
   "action": {
-    "default_title": "Init",
+    "default_title": "js-debugger",
     "default_popup": "popup.html",
     "default_icon": {
       "16": "icons/icon_16.png",

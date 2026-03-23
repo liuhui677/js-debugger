@@ -1,10 +1,10 @@
 chrome.devtools.panels.create(
-  'Init',
+  'js-debugger',
   'icons/icon_16.png',
   'devtools_panel.html',
   function () {
     // Panel created
-    console.log('Init DevTools panel created');
+    console.log('js-debugger DevTools panel created');
   }
 );
 
