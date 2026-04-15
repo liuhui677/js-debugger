@@ -87,4 +87,5 @@
     watchObject,
     watchArray,
   };
+  console.log('jsDetector is ready.');
 })();
