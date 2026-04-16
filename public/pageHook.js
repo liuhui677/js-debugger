@@ -33,6 +33,7 @@
                 callback(key, oldValue, newValue);
               }
               console.log(`修改属性：${key}，旧值：`, oldValue);
+              debugger;
               console.log(`修改属性：${key}，新值：`, newValue);
             }
           }
@@ -87,5 +88,5 @@
     watchObject,
     watchArray,
   };
-  console.log('jsDetector is ready.');
+  console.log('jsDebugger is ready.');
 })();
